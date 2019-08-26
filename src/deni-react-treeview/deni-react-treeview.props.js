@@ -24,6 +24,7 @@ module.exports = {
         showRoot: PropTypes.bool,
         theme: PropTypes.string,
         url: PropTypes.string,
+        rtl: PropTypes.bool,
     },
 
     defaultProps: {
@@ -35,5 +36,6 @@ module.exports = {
         showIcon: true,
         showRoot: false,
         theme: 'classic',
+        rtl: false,
     },
 }

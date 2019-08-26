@@ -1,7 +1,7 @@
 {
-  "name": "deni-react-treeview",
+  "name": "deni-react-treeview-amir",
   "version": "0.2.20",
-  "author": "Denimar de Moraes <denimar@gmail.com>",
+  "author": "Amirreza Sharifi <sharifi.amirreza92@gmail.com>",
   "description": "A modern, themable and configurable treeview for React.",
   "main": "build/deni-react-treeview.js",
   "directories": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/denimar/deni-react-treeview"
+    "url": "https://github.com/amir-ashy/deni-react-treeview"
   },
   "keywords": [
     "facebook",
@@ -32,9 +32,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denimar/deni-react-treeview/issues"
+    "url": "https://github.com/amir-ashy/deni-react-treeview/issues"
   },
-  "homepage": "https://github.com/denimar/deni-react-treeview",
+  "homepage": "https://github.com/amir-ashy/deni-react-treeview",
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel": "^6.23.0",

@@ -2038,12 +2038,20 @@ var DeniReactTreeViewItem = function (_React$Component) {
       var item = this.props.item;
       var level = this.props.level;
       var selectRow = treeview.props.selectRow;
-
-      var marginLeft = 5;
-      var marginLeftItems = level === 0 ? 0 : treeview.props.showRoot ? level * treeview.props.marginItems : (level - 1) * treeview.props.marginItems;
-      var style = {
-        paddingLeft: marginLeft + marginLeftItems + 'px'
-      };
+      var style = {};
+      if (treeview.props.rtl) {
+        var marginRight = 5;
+        var marginRightItems = level === 0 ? 0 : treeview.props.showRoot ? level * treeview.props.marginItems : (level - 1) * treeview.props.marginItems;
+        style = {
+          paddingRight: marginRight + marginRightItems + 'px'
+        };
+      } else {
+        var marginLeft = 5;
+        var marginLeftItems = level === 0 ? 0 : treeview.props.showRoot ? level * treeview.props.marginItems : (level - 1) * treeview.props.marginItems;
+        style = {
+          paddingLeft: marginLeft + marginLeftItems + 'px'
+        };
+      }
       if (!treeview.props.showRoot && this.props.root) {
         style.display = 'none';
       }
@@ -3934,7 +3942,8 @@ module.exports = {
         showIcon: _propTypes2.default.bool,
         showRoot: _propTypes2.default.bool,
         theme: _propTypes2.default.string,
-        url: _propTypes2.default.string
+        url: _propTypes2.default.string,
+        rtl: _propTypes2.default.bool
     },
 
     defaultProps: {
@@ -3945,7 +3954,8 @@ module.exports = {
         showCheckbox: false,
         showIcon: true,
         showRoot: false,
-        theme: 'classic'
+        theme: 'classic',
+        rtl: false
     }
 };
 
