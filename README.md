@@ -102,4 +102,4 @@ For more details: [examples](https://denimar.github.io/deni-react-treeview/examp
 
 ## Author
 
-[Amirreza Sharifi](http://github.com/denimar) (sharifi.amirreza92@gmail.com) 
+[Amirreza Sharifi](https://github.com/amir-ashy) (sharifi.amirreza92@gmail.com) 
