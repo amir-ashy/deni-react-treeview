@@ -1,5 +1,5 @@
-# deni-react-treeview
-A modern, themable and configurable treeview for React
+# deni-react-treeview-amir
+A modern, themable and configurable treeview for React, Which support RTL
 
 
 [site](https://denimar.github.io/deni-react-treeview/), [examples](https://denimar.github.io/deni-react-treeview/examples)
@@ -13,18 +13,14 @@ TODO: In the future I will implement the tests, Cloud CI.
 ## Installing with NPM
 
 ```
-npm install deni-react-treeview --save (React 16)
-
-or
-
-npm install deni-react-treeview@0.1.13 --save (React 15)
+npm install deni-react-treeview-amir --save (React 16)
 ```
 
 ## Usage
 
 Added to your react component
 ```html
-    <TreeView url="https://denifakedata.herokuapp.com/tree/countries" /> 
+    <TreeView url="https://denifakedata.herokuapp.com/tree/countries" rtl={true}/> 
 ```
 For more details: [examples](https://denimar.github.io/deni-react-treeview/examples)
 
@@ -49,6 +45,7 @@ For more details: [examples](https://denimar.github.io/deni-react-treeview/examp
 * showIcon ```(boolean)```
 * showRoot ```(boolean)```
 * theme ```(string)```
+* rtl ```(boolean)```
 
 ## Events
 * OnRenderItem
@@ -105,6 +102,4 @@ For more details: [examples](https://denimar.github.io/deni-react-treeview/examp
 
 ## Author
 
-[Denimar de Moraes](http://github.com/denimar) (denimar@gmail.com) is a full-stack developper at the HBSis IT Solutions, Blumenau, Santa Catarina, Brazil.
-
-[<img src="https://raw.githubusercontent.com/denimar/denibudget/master/linkedin-profile.png">](https://www.linkedin.com/in/denimar-moraes/?locale=en_US)
+[Amirreza Sharifi](http://github.com/denimar) (sharifi.amirreza92@gmail.com) 
