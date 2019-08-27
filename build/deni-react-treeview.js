@@ -2283,7 +2283,7 @@ module.exports = {
     treeviewItemContainerMouseDown: function treeviewItemContainerMouseDown(treeview, selectRow, event) {
         var self = this;
 
-        if (treeview.state.selectedItem !== self.props.item) {
+        if (treeview.state.selectedItem !== self.props.item || treeview.props.multiTimeSelect) {
             var target = event.target;
             var finishRoutine = function finishRoutine() {
                 treeview.setState({
@@ -3943,7 +3943,8 @@ module.exports = {
         showRoot: _propTypes2.default.bool,
         theme: _propTypes2.default.string,
         url: _propTypes2.default.string,
-        rtl: _propTypes2.default.bool
+        rtl: _propTypes2.default.bool,
+        multiTimeSelect: _propTypes2.default.bool
     },
 
     defaultProps: {
@@ -3955,7 +3956,8 @@ module.exports = {
         showIcon: true,
         showRoot: false,
         theme: 'classic',
-        rtl: false
+        rtl: false,
+        multiTimeSelect: false
     }
 };
 

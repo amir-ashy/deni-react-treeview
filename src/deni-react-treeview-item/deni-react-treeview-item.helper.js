@@ -145,7 +145,7 @@ module.exports = {
     treeviewItemContainerMouseDown (treeview, selectRow, event) {
         let self = this;
 
-        if (treeview.state.selectedItem !== self.props.item) {
+        if (treeview.state.selectedItem !== self.props.item || treeview.props.multiTimeSelect) {
             let target = event.target;
             let finishRoutine = function() {
                 treeview.setState({
