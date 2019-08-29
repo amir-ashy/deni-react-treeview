@@ -1,10 +1,10 @@
-import {CHECKBOX_STATE} from './deni-react-treeview-item.constant'
+import { CHECKBOX_STATE } from './deni-react-treeview-item.constant'
 import ActionButtons from './action-buttons'
 import React from 'react'
 
 module.exports = {
 
-    getClassItem (treeview, item, level, selectRow) {
+    getClassItem(treeview, item, level, selectRow) {
         let classNames = ['deni-react-treeview-item-container'];
 
         classNames.push('unselectable');
@@ -26,7 +26,7 @@ module.exports = {
         return classNames.join(' ');
     },
 
-    getClassIcon (treeview, item) {
+    getClassIcon(treeview, item) {
         let classNames = ['icon'];
 
         if (treeview.props.showIcon) {
@@ -44,10 +44,10 @@ module.exports = {
         return classNames.join(' ');
     },
 
-    getClassExpandButton (treeview, treeviewItem, item) {
+    getClassExpandButton(treeview, treeviewItem, item) {
         let classNames = ['expand-button'];
 
-        if (((item.children && item.children.length > 0)  || (!item.isLeaf && treeview.props.lazyLoad))) {
+        if (((item.children && item.children.length > 0) || (!item.isLeaf && treeview.props.lazyLoad))) {
             classNames.push('hasChild');
 
             if (item.expanded) {
@@ -68,15 +68,29 @@ module.exports = {
         return classNames.join(' ');
     },
 
-    getClassCheckbox (treeview, item) {
+    getClassCheckbox(treeview, item) {
         let classNames = ['checkbox'];
 
         if (treeview.props.showCheckbox) {
-            if (item.state === CHECKBOX_STATE.CHECKED) {
-                classNames.push('checked');
-            } else if (item.state === CHECKBOX_STATE.UNDETERMINED) {
-                classNames.push('undetermined');
+            if (treeview.props.disabledCheckBox) {
+                if (item.state === CHECKBOX_STATE.CHECKED) {
+                    classNames.push('checked-disabled');
+                } else if (item.state === CHECKBOX_STATE.UNDETERMINED) {
+                    classNames.push('undetermined-disabled');
+                }
             }
+            else {
+                if (item.state === CHECKBOX_STATE.CHECKED) {
+                    classNames.push('checked');
+                } else if (item.state === CHECKBOX_STATE.UNDETERMINED) {
+                    classNames.push('undetermined');
+                }
+
+                if (this.isSelected(treeview, item)) {
+                    classNames.push('selected');
+                }
+            }
+
 
             if (this.isSelected(treeview, item)) {
                 classNames.push('selected');
@@ -88,7 +102,7 @@ module.exports = {
         return classNames.join(' ');
     },
 
-    getClassIconAndText (treeview, item, selectRow) {
+    getClassIconAndText(treeview, item, selectRow) {
         let classNames = ['icon-and-text'];
 
         if (selectRow) {
@@ -102,7 +116,7 @@ module.exports = {
         return classNames.join(' ');
     },
 
-    getInnerText (treeview, item) {
+    getInnerText(treeview, item) {
         if (treeview.props.actionButtons) {
             return (
                 <ActionButtons item={item} buttons={treeview.props.actionButtons} onActionButtonClick={treeview.props.onActionButtonClick.bind(this)} />
@@ -120,11 +134,11 @@ module.exports = {
         return item.state === CHECKBOX_STATE.UNDETERMINED;
     },
 
-    isSelected (treeview, item) {
+    isSelected(treeview, item) {
         return treeview.state.selectedItem === item;
     },
 
-    treeviewItemContainerDoubleClick (helper, treeview, selectRow, event) {
+    treeviewItemContainerDoubleClick(helper, treeview, selectRow, event) {
         let canContinue = selectRow;
 
         if (!canContinue) {
@@ -142,12 +156,12 @@ module.exports = {
         }
     },
 
-    treeviewItemContainerMouseDown (treeview, selectRow, event) {
+    treeviewItemContainerMouseDown(treeview, selectRow, event) {
         let self = this;
 
         if (treeview.state.selectedItem !== self.props.item || treeview.props.multiTimeSelect) {
             let target = event.target;
-            let finishRoutine = function() {
+            let finishRoutine = function () {
                 treeview.setState({
                     selectedItem: self.props.item
                 });
@@ -162,18 +176,18 @@ module.exports = {
             }
 
             if (treeview.props.onSelectItem) {
-                const shouldFireEvent = (treeview.props.selectRow && event.target.classList.contains('deni-react-treeview-item-container')) || 
-                                        (!treeview.props.selectRow && event.target.classList.contains('text-inner')) 
-                
-                
+                const shouldFireEvent = (treeview.props.selectRow && event.target.classList.contains('deni-react-treeview-item-container')) ||
+                    (!treeview.props.selectRow && event.target.classList.contains('text-inner'))
+
+
                 if (shouldFireEvent) {
                     treeview.props.onSelectItem(self.props.item);
-                }    
+                }
             }
         }
     },
 
-    treeviewItemExpandButtonMouseDown (treeview, item) {
+    treeviewItemExpandButtonMouseDown(treeview, item) {
         let self = this;
         const conclusion = () => {
             item.expanded = !item.expanded;
@@ -200,7 +214,7 @@ module.exports = {
             resolveEventOnColapsed();
         } else {
             if (treeview.props.lazyLoad) {
-                self.setState({loading: true});
+                self.setState({ loading: true });
 
                 if (treeview.props.lazyLoad && treeview.props.onLazyLoad) {
                     treeview.props.onLazyLoad(item, (children) => {
@@ -208,7 +222,7 @@ module.exports = {
                         conclusion();
                     });
                 } else {
-                    treeview.api.load(item).then(function() {
+                    treeview.api.load(item).then(function () {
                         conclusion();
                     })
                 }
@@ -221,7 +235,7 @@ module.exports = {
         }
     },
 
-    treeviewItemCheckboxMouseDown  (helper, treeview, item) {
+    treeviewItemCheckboxMouseDown(helper, treeview, item) {
         let treeviewItem = this;
 
         const resolveEventOnChecked = () => {
@@ -230,28 +244,30 @@ module.exports = {
             }
         };
 
-        if (_isChecked(item)) {
-            helper.uncheckNode(treeviewItem, item);
-        } else {
-            helper.checkNode(treeviewItem, item);
+        if (!treeview.props.disabledCheckBox) {
+            if (_isChecked(item)) {
+                helper.uncheckNode(treeviewItem, item);
+            } else {
+                helper.checkNode(treeviewItem, item);
+            }
+
+            treeview.setState({
+                selectedItem: item,
+            });
+
+            resolveEventOnChecked();
         }
-
-        treeview.setState({
-            selectedItem: item,
-        });
-
-        resolveEventOnChecked();
     },
 
     //
-    checkNode (treeviewItem, item) {
+    checkNode(treeviewItem, item) {
         item.state = CHECKBOX_STATE.CHECKED;
         _refreshCheckboxStateChildren(item);
         _refreshCheckboxStateParents(treeviewItem);
     },
 
     //
-    uncheckNode (treeviewItem, item) {
+    uncheckNode(treeviewItem, item) {
         item.state = CHECKBOX_STATE.UNCHECKED;
         _refreshCheckboxStateChildren(item);
         _refreshCheckboxStateParents(treeviewItem);
@@ -271,8 +287,8 @@ function _getActionButtonByName(buttonName) {
 
     } else
 
-    // (<FaTrashO size="15" color='#ff6666' />),
-    // (<FaEdit size="15" color='#006699' />)
+        // (<FaTrashO size="15" color='#ff6666' />),
+        // (<FaEdit size="15" color='#006699' />)
 
         here
 }
@@ -290,7 +306,7 @@ function _isUnchecked(item) {
 ///
 function _refreshCheckboxStateChildren(item) {
     if (item.children) {
-        item.children.forEach(function(child) {
+        item.children.forEach(function (child) {
             child.state = item.state;
             _refreshCheckboxStateChildren(child);
         });
@@ -298,7 +314,7 @@ function _refreshCheckboxStateChildren(item) {
 }
 
 function _allItemsAreChecked(items) {
-    for (let index = 0 ; index < items.length ; index++) {
+    for (let index = 0; index < items.length; index++) {
         let item = items[index];
 
         if (!_isChecked(item)) {
@@ -309,7 +325,7 @@ function _allItemsAreChecked(items) {
 }
 
 function _allItemsAreUnchecked(items) {
-    for (let index = 0 ; index < items.length ; index++) {
+    for (let index = 0; index < items.length; index++) {
         let item = items[index];
 
         if (!_isUnchecked(item)) {

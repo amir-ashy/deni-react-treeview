@@ -139,8 +139,24 @@
       background-position: center;
     }
 
+    &.checked-disabled {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAAYagMeiWXwAAAAJiS0dEAP+Hj8y/AAABT0lEQVQoz23QPUhCYRTG8f/7Xi3LpAsh9AFxh7SghFtLDg3l1lI4urlLZVSzODUqNAQt1uYqRNAQuhgUhLY4RQlCGg5lhJmptyVD8p7pwPlx4HkEprOlyYhFsxSVXYvpWZVpjzZKjZImzYAMuzQXQ7ixrZp8COuDkQVqXdwPlJgXKy0mKKHE+8B+cHx1mg8meee5KKMCQrrQRf4oD3CgyqcNVaHNMFm+1vYyMhRz5uYT9txWDEDGdNVBizEeacb3MiBCxiYDCG4pnw6cOdJ+6oxQ47ooFsNvIAU26jTx4Q7K9ApgQ+Ee6Q+/ASjL6qfXTZsOsziZ5ptRClSjO8nfTLeXc1pDd9HhkylajPBKLr8d+AsNNymP1tRnUGhgw0qW9vpFpQdANrWkveguhrBToBoNJU36P0ycGA/GnXGc+9drd7lK+cSjXq7IwHmlF/wA8Tdlcukyf5cAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDgtMjlUMTc6MjM6NDYrMDA6MDBgSUC/AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA4LTI5VDE3OjIzOjQ2KzAwOjAwERT4AwAAAABJRU5ErkJggg==');
+      background-size: $checkbox-image-width $checkbox-image-height;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     &.undetermined {
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA4SURBVChTY3iDF4Ckf/z5gRVBpZ9/e44VQaWvvr969cNVTBIqfeTlEawIKr3n2R6siB7SOMGbNwBflQU0aOd8igAAAABJRU5ErkJggg==');
+      background-size: $checkbox-image-width $checkbox-image-height;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.undetermined-disabled {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAABGdBTUEAAYagMeiWXwAAAAJiS0dEAP+Hj8y/AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAJUlEQVQI12N4AwcMb35DAZD5CQqAzBdQAGTegwIg8xYUEMOEAwCdf1oJwysWDgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0yOVQxNzo0NDo0MyswMDowMDgYviIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMjlUMTc6NDQ6NDQrMDA6MDCM4jgQAAAAAElFTkSuQmCC');
       background-size: $checkbox-image-width $checkbox-image-height;
       background-color: transparent;
       background-repeat: no-repeat;

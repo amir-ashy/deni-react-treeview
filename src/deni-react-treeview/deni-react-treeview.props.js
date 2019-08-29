@@ -26,6 +26,7 @@ module.exports = {
         url: PropTypes.string,
         rtl: PropTypes.bool,
         multiTimeSelect: PropTypes.bool,
+        disabledCheckBox: PropTypes.bool,
     },
 
     defaultProps: {
@@ -38,6 +39,7 @@ module.exports = {
         showRoot: false,
         theme: 'classic',
         rtl: false,
-        multiTimeSelect: false
+        multiTimeSelect: false,
+        disabledCheckBox: false
     },
 }

@@ -1,6 +1,6 @@
 {
   "name": "deni-react-treeview-amir",
-  "version": "0.2.21",
+  "version": "0.2.23",
   "author": "Amirreza Sharifi <sharifi.amirreza92@gmail.com>",
   "description": "A modern, themable and configurable treeview for React.",
   "main": "build/deni-react-treeview.js",
